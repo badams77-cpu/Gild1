@@ -27,3 +27,31 @@ With the user and password set up the the test should run
 alternative edit the user password and database new new GildedDatasource
 
 
+============
+
+React
+
+front end not quite working (no errors but empty screen) but code is there
+
+in directory
+
+react/gilded
+
+first run
+
+npm install
+
+then
+
+npm start
+
+And it will load the front end on port 3000 in a browser
+
+======
+
+localhost was not work working in react, so edit file "[base]/react/gilded/src/http-common.js" and App.js
+
+and replace "http://http://192.168.56.111 with "http://your.ip.address.on.the.lan"
+
+Read the web page with http://192.168.56.111:3000/
+

@@ -46,22 +46,20 @@ class GildedComp extends Component {
             this.getItems();
         }
         var items = this.state['items'] || [];
-            return (<p><h2>Gilded Rose</h2>
+            return (<div><h2>Gilded Rose</h2>
                     <form onSubmit={()=>this.reset()}><button>INITIZATION</button></form>
 
             <form onSubmit={()=>this.nextDay()}><button>NEXT DAY</button></form>
-            <p><table><tr><th>NAME</th><th>Sell In</th><th>Quality</th></tr>
+            <div><table><tbody><tr><th>NAME</th><th>Sell In</th><th>Quality</th></tr>
                 {
-                    items.forEach( i => i.map(
-                        item => {
-                          return (<tr><td>{item.itemName.name}</td>
+                    items.map( item => item==null ? '' : (<tr><td>{item.itemName}</td>
                             <td>{item.sellIn}</td>
                         <td>{item.quality}</td></tr>)
-                        }))
+                        )
                 }
-            </table>
-            </p>
-            </p>
+            </tbody></table>
+            </div>
+            </div>
         );
 
     }
