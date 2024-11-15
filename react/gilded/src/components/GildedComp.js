@@ -34,6 +34,7 @@ class GildedComp extends Component {
         axios.get("http://localhost;8080/inventory").then( res=> {
             var items = res.data;
             this.setState( {'items': items, 'valid': true});
+            console.log("Got items: ", items);
             }
         )
             .catch( error => console.log(" Axios error ",error));;
