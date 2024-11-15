@@ -1,5 +1,5 @@
 import React,{Component, Button, Form} from "react";
-import axios from 'axios'
+import http from '../http-common'
 
 class GildedComp extends Component {
 
@@ -11,12 +11,12 @@ class GildedComp extends Component {
     }
 
     setTime(){
-        axios.post("http://localhost:8080/set_now")
+        http.post("set_now")
             .catch( error => console.log(" Axios error ",error));
     }
 
     reset(){
-        axios.post("http://localhost:8080/reset").then( this.invalidate())
+        http.post("reset").then( this.invalidate())
             .catch( error => console.log(" Axios error ",error));;
     }
 
@@ -26,12 +26,12 @@ class GildedComp extends Component {
     }
 
     nextDay(){
-        axios.post("http://localhost:8080/day_passed").then(this.invalidate())
+        http.post("day_passed").then(this.invalidate())
             .catch( error => console.log(" Axios error ",error));;
     }
 
     getItems(){
-        axios.get("http://localhost;8080/inventory").then( res=> {
+        http.get("inventory").then( res=> {
             var items = res.data;
             this.setState( {'items': items, 'valid': true});
             console.log("Got items: ", items);
@@ -46,9 +46,10 @@ class GildedComp extends Component {
             this.getItems();
         }
         var items = this.state['items'] || [];
-            return (<p><h2>Gilded Rose</h2><p><Form onSubmit={()=>this.reset()}><Button >INITIZATION</Button></Form></p>
+            return (<p><h2>Gilded Rose</h2>
+                    <form onSubmit={()=>this.reset()}><button>INITIZATION</button></form>
 
-            <p><Form onSubmit={()=>this.nextDay()}><Button>NEXT DAY</Button></Form></p>
+            <form onSubmit={()=>this.nextDay()}><button>NEXT DAY</button></form>
             <p><table><tr><th>NAME</th><th>Sell In</th><th>Quality</th></tr>
                 {
                     items.forEach( i => i.map(
@@ -67,4 +68,4 @@ class GildedComp extends Component {
 
 }
 
-export default GildedComp()
+export default GildedComp
