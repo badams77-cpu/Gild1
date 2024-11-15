@@ -1,0 +1,29 @@
+This is the Java Spring solution for the backend to the guildrose test
+
+You will need gradle
+
+build with
+
+gradle clean build -x test
+
+All dependencies sproing etc should be downloaded
+
+There is an integration test, can build and run with
+
+gradle clean build
+
+To launch server
+
+gradle bootRun
+
+We have used a local database and datasource in the answer
+
+For the tests to run, mysql should be initialied using the script
+
+/src/main/resources/schema.sql
+
+With the user and password set up the the test should run
+
+alternative edit the user password and database new new GildedDatasource
+
+
